@@ -30,3 +30,16 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+/android
+node_modules/
+
+.ionic/
+.sass-cache/
+.sourcemaps/
+.versions/
+
+
+coverage/
+reports/
+cypress/videos/
+cypress/screenshots/
