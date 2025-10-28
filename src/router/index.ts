@@ -2,11 +2,9 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 
 import HomeView from '../views/HomeView.vue'
-import ListView from '../views/ListView.vue'
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', component: HomeView },
-  { path: '/list/:id', component: ListView },
+  { path: '/:listid?', component: HomeView },
 ]
 
 const router = createRouter({
