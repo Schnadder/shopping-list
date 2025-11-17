@@ -67,11 +67,14 @@ async function handleSelectList(id: string) {
   activeListId.value = id
 }
 
-async function handleCreateList() {
+async function handleCreateList(name: string) {
+  const trimmed = name.trim()
+  if (!trimmed) return
+
   const newId = Date.now().toString()
   lists.value.push({
     id: newId,
-    name: `List ${lists.value.length + 1}`,
+    name: trimmed,
     items: [],
   })
   activeListId.value = newId
