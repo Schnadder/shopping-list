@@ -62,7 +62,7 @@ onMounted(async () => {
   }
 })
 
-// --- Event handlers ---
+// Event handlers
 async function handleSelectList(id: string) {
   activeListId.value = id
 }

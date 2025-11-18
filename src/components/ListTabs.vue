@@ -11,7 +11,7 @@
 
   <div class="ion-padding">
     <ion-button size="small" @click="onCreateList">
-      + New List
+      New List
     </ion-button>
 
     <ion-button
@@ -52,7 +52,7 @@ function onSegmentChange(ev: CustomEvent) {
   }
 }
 
-// NEW: show alert to get the list name and emit it
+// Show alert to get the list name and emit it
 async function onCreateList() {
   const alert = await alertController.create({
     header: 'New List',
