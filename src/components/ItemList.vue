@@ -1,25 +1,41 @@
 <template>
   <ion-list>
-    <!-- UNFINISHED ITEMS -->
-    <ion-reorder-group :disabled="false" @ionItemReorder="ev => onReorder(ev, false)">
-      <ion-reorder v-for="item in unfinishedItems" :key="item.id">
-        <ion-item button @click="$emit('toggle-done', item.id)">
-          <ion-label>
-            {{ item.text }}
-          </ion-label>
-        </ion-item>
-      </ion-reorder>
+    <!-- UNFINISHED ITEMS (top) -->
+    <ion-reorder-group
+      :disabled="false"
+      @ionItemReorder="ev => onReorder(ev, false)"
+    >
+      <ion-item
+        v-for="item in unfinishedItems"
+        :key="item.id"
+        button
+        @click="$emit('toggle-done', item.id)"
+      >
+        <ion-label>
+          {{ item.text }}
+        </ion-label>
+        <!-- drag handle on the right -->
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
     </ion-reorder-group>
 
-    <!-- DONE ITEMS -->
-    <ion-reorder-group v-if="doneItems.length" :disabled="false" @ionItemReorder="ev => onReorder(ev, true)">
-      <ion-reorder v-for="item in doneItems" :key="item.id">
-        <ion-item button @click="$emit('toggle-done', item.id)">
-          <ion-label class="done">
-            {{ item.text }}
-          </ion-label>
-        </ion-item>
-      </ion-reorder>
+    <!-- DONE ITEMS (bottom) -->
+    <ion-reorder-group
+      v-if="doneItems.length"
+      :disabled="false"
+      @ionItemReorder="ev => onReorder(ev, true)"
+    >
+      <ion-item
+        v-for="item in doneItems"
+        :key="item.id"
+        button
+        @click="$emit('toggle-done', item.id)"
+      >
+        <ion-label class="done">
+          {{ item.text }}
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
     </ion-reorder-group>
   </ion-list>
 </template>
@@ -70,8 +86,15 @@ function onReorder(
 
   const currentUnfinished = unfinishedItems.value
   const currentDone = doneItems.value
-  const newUnfinished = isDoneGroup ? currentUnfinished : reorderArray(currentUnfinished, from, to)
-  const newDone = isDoneGroup ? reorderArray(currentDone, from, to): currentDone
+
+  const newUnfinished = isDoneGroup
+    ? currentUnfinished
+    : reorderArray(currentUnfinished, from, to)
+
+  const newDone = isDoneGroup
+    ? reorderArray(currentDone, from, to)
+    : currentDone
+
   const merged = [...newUnfinished, ...newDone]
 
   emit('reorder', merged)
