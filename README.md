@@ -16,13 +16,13 @@ It demonstrates rapid mobile development using [Ionic](https://ionicframework.co
 
 ---
 
-## Features (Planned / Implemented)
+## Features
 
 - Create, delete and switch between multiple shopping/todo lists.
 - Add new items quickly with keyboard focus retained.
 - Mark items as purchased/done with a tap.
 - Persist data to JSON files locally on the device.
-- (Optional) Reorder list items via long press and drag.
+- Reorder list items via long press and drag.
 
 ---
 
@@ -34,6 +34,19 @@ It demonstrates rapid mobile development using [Ionic](https://ionicframework.co
 - Android Studio (emulator)
 - Node.js & npm
 
+---
+## Prerequisites
+
+Before running or building the project, ensure that the following tools are installed:
+
+- **Node.js (version 18 or later)**  
+  https://nodejs.org/
+
+- **Android Studio**, including the **Android SDK** and an emulator  
+  https://developer.android.com/studio
+
+- **Ionic CLI**
+  npm install -g @ionic/cli
 ---
 
 ## Getting Started
